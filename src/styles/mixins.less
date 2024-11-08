@@ -1,0 +1,21 @@
+// Mixin para o container centralizado
+.container-mixin() {
+    max-width: @largura-container;
+    width: 100%;
+    margin: 0 auto;
+}
+
+// Mixin para botão estilo
+.botao-mixin(@cor-fundo, @cor-hover) {
+    background-color: @cor-fundo;
+    color: @cor-branco;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 8px;
+    text-decoration: none;
+    display: block;
+
+    &:hover {
+        background-color: @cor-hover;
+    }
+}

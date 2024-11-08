@@ -1,0 +1,104 @@
+// Importação dos arquivos auxiliares
+@import 'Variaveis.less';
+@import 'mixins.less';
+
+// Estilos globais
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: @fonte-principal;
+}
+
+body {
+    background-color: @cor-fundo;
+}
+
+li {
+    list-style: none;
+}
+
+// Estilos para o container principal
+.container {
+    .container-mixin();
+}
+
+// Header e menu
+header {
+    background-color: @cor-header;
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0;
+    }
+}
+
+.menu {
+    display: flex;
+
+    li {
+        font-weight: bold;
+        margin-left: 24px;
+    }
+
+    li a {
+        color: @cor-branco;
+        text-decoration: none;
+    }
+}
+
+// Seção de produtos
+section {
+    padding: 56px 0;
+
+    .products {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(3, 32.66%);
+        column-gap: 1%;
+        row-gap: 4%;
+        width: 100%;
+    }
+
+    .product-item {
+        img {
+            width: 100%;
+            border-radius: 16px;
+        }
+        
+        .product-button {
+            .botao-mixin(@cor-botao, @cor-botao-hover);
+            margin-top: 8px;
+        }
+    }
+}
+
+// Media Queries Responsivas (incluídas diretamente no styles.less)
+
+// Para telas médias
+@media screen and (max-width: 1023px) {
+    .container {
+        max-width: 80%;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 48.5%);
+        column-gap: 3%;
+    }
+}
+
+// Para telas pequenas
+@media screen and (max-width: 767px) {
+    .products {
+        display: block;
+    }
+
+    .product-item {
+        margin-bottom: 32px;
+    }
+}
